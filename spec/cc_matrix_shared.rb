@@ -1,4 +1,4 @@
-share_examples_for Recommendify::CCMatrix do
+shared_examples_for Recommendify::CCMatrix do
 
   it "should build a sparsematrix with the correct key" do
     @matrix.ccmatrix.redis_key.should == "recommendify-test:mymatrix:ccmatrix"

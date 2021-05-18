@@ -36,9 +36,10 @@ describe Recommendify::Base do
     it "should retrieve an input_matrix on a new instance and correctly overload respond_to?" do
       Recommendify::Base.input_matrix(:myinput, :similarity_func => :jaccard)
       sm = Recommendify::Base.new
-      sm.respond_to?(:process!).should be_true
-      sm.respond_to?(:myinput).should be_true
-      sm.respond_to?(:fnord).should be_false
+      p sm
+      sm.respond_to?(:process!).should be true
+      sm.respond_to?(:myinput).should be true
+      sm.respond_to?(:fnord).should be false
     end
 
     it "should retrieve an input_matrix on a new instance and intialize the correct class" do
@@ -57,7 +58,7 @@ describe Recommendify::Base do
       sm = Recommendify::Base.new
       sm.myfirstinput.should_receive(:similarities_for).with("fnorditem").and_return([["fooitem",0.5]])
       sm.mysecondinput.should_receive(:similarities_for).with("fnorditem").and_return([["fooitem",0.5]])
-      sm.similarity_matrix.stub!(:update)
+      sm.similarity_matrix.stub(:update)
       sm.process_item!("fnorditem")
     end
 

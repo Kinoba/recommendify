@@ -1,4 +1,4 @@
-share_examples_for Recommendify::InputMatrix do
+shared_examples_for Recommendify::InputMatrix do
   
   it "should build the correct keys" do
     @matrix.redis_key.should == "recommendify-test:mymatrix"

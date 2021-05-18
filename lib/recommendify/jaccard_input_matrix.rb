@@ -57,6 +57,7 @@ private
   end
 
   def redis_url
+    p Recommendify.redis.inspect
     Recommendify.redis.client.location
   end
 
